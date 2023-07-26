@@ -23,10 +23,11 @@ public class PostService {
     public void savePost(SavePostDto request){
         var post= buildPostEntity(request);
         var postDetail= buildPostDetailEntity(post, request.getCreatedBy());
-//
-//        if(!request.getTagsIds().isEmpty()){
-////            var tags=tagService
-//        }
+
+        if(!request.getTagsIds().isEmpty()){
+            var tags=tagService.getTagsByIds(request.getTagsIds());
+            post.setTags(tags);
+        }
         post.setDetail(postDetail);
         postRepository.save(post);
 

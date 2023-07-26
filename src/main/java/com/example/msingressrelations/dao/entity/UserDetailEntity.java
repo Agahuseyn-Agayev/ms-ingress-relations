@@ -20,6 +20,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Table(name="user_details")
+//@NamedEntityGraph(name="user_details_entity_graph",attributeNodes = @NamedAttributeNode("addresses"))
 public class UserDetailEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
