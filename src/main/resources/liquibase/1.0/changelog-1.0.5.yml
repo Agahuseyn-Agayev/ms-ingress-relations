@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create user_details table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: user_details
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  remarks: name of user
+                  constraints:
+                    nullable: false
+              - column:
+                  name: mobile_number
+                  type: varchar(255)
+                  remarks: number  of user
+              - column:
+                  name: age
+                  type: bigint
+                  remarks: age  of user
+                  constraints:
+              - column:
+                  name: birth_place
+                  type: text
+                  remarks: birth place  of user
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of user
+                  constraints:
+                    nullable: false
+              - column:
+                  name: update_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of user
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about user_details

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ms-ingress-relations
+    username: postgres
+    password: 27091995a
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml

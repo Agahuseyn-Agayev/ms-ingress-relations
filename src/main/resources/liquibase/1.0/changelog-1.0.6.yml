@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create addresses table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: addresses
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: addresses1
+                  type: text
+                  remarks: addresses1 of user
+              - column:
+                  name: addresses2
+                  type: varchar(255)
+                  remarks: addresses  of user
+              - column:
+                  name: city
+                  type: varchar(255)
+              - column:
+                  name: country
+                  type: text
+                  remarks: country  of user
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_addresses_to_user_details
+                    references: user_details(id)
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created of user
+                  constraints:
+                    nullable: false
+              - column:
+                  name: update_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: update of user
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about addresses

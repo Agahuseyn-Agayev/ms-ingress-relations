@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create tags table
+      author: Agahuseyn Agayev
+      changes:
+        - createTable:
+            tableName: tags
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: text
+                  remarks: name of post
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about post tags
