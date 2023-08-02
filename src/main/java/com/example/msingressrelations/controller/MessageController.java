@@ -23,4 +23,8 @@ public class MessageController {
     public String getMessage2(){
         return messageService.getMessage2();
     }
+    @GetMapping("/3")
+    public void getCheck(){
+        messageService.check();
+    }
 }
