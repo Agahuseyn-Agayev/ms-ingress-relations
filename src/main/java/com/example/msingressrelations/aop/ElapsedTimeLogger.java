@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,11 @@ public class ElapsedTimeLogger {
         log.info("Elapsed time:{}",endDate-startDate);
     }
 
+@AfterThrowing(value ="execution(* com.example.msingressrelations.service.MessageService.*(..))",throwing = "ex")
+ public void afterThrowing(JoinPoint jp,Exception ex){
+    System.out.println("After throwing"+jp.getSignature());
+    ex.printStackTrace();
+}
 @Before(value = "elapsedTimePc()")
  public void logAllParameters(JoinPoint joinPoint){
  Arrays.stream(joinPoint.getArgs()).forEach(arg->log.info("All method args: {}",arg));

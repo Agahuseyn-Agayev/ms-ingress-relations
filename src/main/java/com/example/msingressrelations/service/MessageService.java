@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
 import java.util.Random;
 
 @Service
@@ -13,6 +14,10 @@ public class MessageService {
     public String getMessage(String lang) {
         Thread.sleep(new Random().nextInt(2000));
         return "Hello world";
+    }
+    public void check(){
+        System.out.println(5/0);
+
     }
 
     @SneakyThrows
